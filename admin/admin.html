@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Quản lý Sản phẩm</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../asset/css/main.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="mb-4">Quản lý Sản phẩm</h1>
+            <a href="../customer/index.html" class="btn btn-outline-primary">Về trang bán hàng</a>
+        </div>
+        
+        <div class="card card-body mb-5">
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="name">Tên sản phẩm</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="price">Giá</label>
+                        <input type="number" id="price" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="img">URL Hình ảnh</label>
+                        <input type="text" id="img" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="type">Loại (samsung/iphone)</label>
+                        <input type="text" id="type" class="form-control" required>
+                    </div>
+                    <div class="col-12 form-group">
+                        <label for="desc">Mô tả</label>
+                        <textarea id="desc" class="form-control" rows="3" required></textarea>
+                    </div>
+                </div>
+                <button type="submit" id="btnSave" class="btn btn-primary">Thêm sản phẩm</button>
+                <button type="button" id="btnReset" class="btn btn-secondary">Làm mới Form</button>
+            </form>
+        </div>
+
+        <div class="d-flex justify-content-between mb-3">
+             <input type="text" id="searchInput" class="form-control" style="max-width: 400px;" placeholder="Tìm sản phẩm theo tên...">
+             <select id="sortPrice" class="form-control" style="max-width: 200px;">
+                <option value="default">Sắp xếp theo giá</option>
+                <option value="asc">Tăng dần</option>
+                <option value="desc">Giảm dần</option>
+            </select>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
+                    <th>Hình ảnh</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="adminProductList"></tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../controller/admin.js" type="module"></script>
+</body>
+</html>
