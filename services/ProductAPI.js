@@ -1,4 +1,4 @@
-const API_URL = "https://<your-mockapi-id>.mockapi.io/Products";
+const API_URL = "https://685c9163769de2bf085d14a3.mockapi.io/Products";
 
 export class ProductService {
   /** Lấy tất cả sản phẩm */
@@ -37,11 +37,11 @@ export class ProductService {
     try {
       const response = await axios.put(`${API_URL}/${productId}`, productData);
       return response.data;
-    } catch (error)      {
+    } catch (error) {
       console.error(`Lỗi khi cập nhật sản phẩm ID ${productId}:`, error);
     }
   }
-  
+
   /** Xóa một sản phẩm */
   async deleteProduct(productId) {
     try {
